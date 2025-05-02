@@ -1,10 +1,11 @@
 from flask import Flask, request, jsonify
+from flask_cors import CORS
 from keras.models import load_model
 from keras.preprocessing.image import load_img, img_to_array
 import numpy as np
-import os
 
 app = Flask(__name__)
+CORS(app)
 
 MODEL_PATH = './model/model.h5'  
 model = load_model(MODEL_PATH)
